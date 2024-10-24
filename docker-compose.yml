@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+### MySQL Container
+  mysql:
+    build:
+      context: ./sql
+      args:
+        - MYSQL_DATABASE=db
+        - MYSQL_USER=linar
+        - MYSQL_PASSWORD=333
+        - MYSQL_ROOT_PASSWORD=123456
+### PHP Container
+  php-nginx:
+    build:
+      context: ./www
+    ports:
+      - "10008:8080"
